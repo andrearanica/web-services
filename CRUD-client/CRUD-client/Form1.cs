@@ -40,8 +40,7 @@ namespace CRUD_client {
         static async Task<Uri> CreateTodoAsync(Todo todo)
         {
 
-            HttpResponseMessage response = await client.PostAsJsonAsync(
-                "/todos", todo);
+            HttpResponseMessage response = await client.PostAsJsonAsync("/todos", todo);
             response.EnsureSuccessStatusCode();
 
             // return URI of the created resource.
@@ -50,8 +49,7 @@ namespace CRUD_client {
 
         static async Task<Todo> UpdateTodoAsync(Todo todo)
         {
-            HttpResponseMessage response = await client.PutAsJsonAsync(
-                $"/todos/{ todo.id }", todo);
+            HttpResponseMessage response = await client.PutAsJsonAsync($"/todos/{ todo.id }", todo);
             response.EnsureSuccessStatusCode();
 
             // Deserialize the updated product from the response body.
@@ -59,10 +57,9 @@ namespace CRUD_client {
             return todo;
         }
 
-        static async Task<HttpStatusCode> DeleteTodoAsync(int id)
+        static async Task<HttpStatusCode> DeleteTodoAsync (int id)
         {
-            HttpResponseMessage response = await client.DeleteAsync(
-                $"/todos/{ id }");
+            HttpResponseMessage response = await client.DeleteAsync($"/todos/{ id }");
             return response.StatusCode;
         }
 
@@ -79,9 +76,9 @@ namespace CRUD_client {
                 List<Todo> todos = await GetTodoList(userId);
                 foreach (Todo todo in todos) {
                     if (todo.completed) { 
-                        list_todos.Items.Add($"{ todo.id } | ▢ { todo.title }");
+                        list_todos.Items.Add($"{ todo.id } | ▣ # { todo.title }");
                     } else {
-                        list_todos.Items.Add($"▣ { todo.title }");
+                        list_todos.Items.Add($"{ todo.id } | ▢ # { todo.title }");
                     }
                 }
             }
@@ -103,13 +100,31 @@ namespace CRUD_client {
         }
 
         private async void btn_delete_Click(object sender, EventArgs e) {
-            int todoId = int.Parse(list_todos.Items[list_todos.SelectedIndex].ToString().Split(' ')[0]);
-            HttpStatusCode code = await DeleteTodoAsync(todoId);
-            if (code == HttpStatusCode.OK) {
-                MessageBox.Show("Eliminazione avvenuta con successo");
+            try {
+                int todoId = int.Parse(list_todos.Items[list_todos.SelectedIndex].ToString().Split('|')[0].Split(' ')[0]);
+                HttpStatusCode code = await DeleteTodoAsync(todoId);
+                // MessageBox.Show("Eliminazione avvenuta con successo");
                 showTodos();
-            } else {
+            } catch (Exception) {
                 MessageBox.Show("Seleziona l'elemento da eliminare");
+            }
+        }
+
+        private async void btn_createTodo_Click (object sender, EventArgs e) {
+            Todo todo = new Todo(userId, 0, txt_title.Text, false);
+            Uri uri = await CreateTodoAsync(todo);
+            showTodos();
+        }
+
+        private async void btn_complete_Click(object sender, EventArgs e) {
+            Todo todo = new Todo(userId, int.Parse(list_todos.SelectedItem.ToString().Split(' ')[0]), list_todos.SelectedItem.ToString().Split('#')[1], true);
+            try
+            {
+                Todo newTodo = await UpdateTodoAsync(todo);
+                showTodos();
+            } catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
         }
     }
@@ -119,5 +134,11 @@ namespace CRUD_client {
         public int id { get; set; }
         public string title { get; set; }
         public bool completed { get; set; }
+        public Todo (int userId, int id, string title, bool completed) {
+            this.userId = userId;
+            this.id = id;
+            this.title = title;
+            this.completed = completed;
+        }
     }
 }
