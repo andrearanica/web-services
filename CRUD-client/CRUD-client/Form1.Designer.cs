@@ -48,7 +48,7 @@ namespace CRUD_client
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(227, 128);
+            this.label1.Location = new System.Drawing.Point(166, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 37);
@@ -61,7 +61,7 @@ namespace CRUD_client
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 9);
+            this.label2.Location = new System.Drawing.Point(135, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 21);
             this.label2.TabIndex = 2;
@@ -71,9 +71,9 @@ namespace CRUD_client
             // 
             this.txt_userId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_userId.Location = new System.Drawing.Point(147, 33);
+            this.txt_userId.Location = new System.Drawing.Point(158, 33);
             this.txt_userId.Name = "txt_userId";
-            this.txt_userId.Size = new System.Drawing.Size(239, 29);
+            this.txt_userId.Size = new System.Drawing.Size(97, 29);
             this.txt_userId.TabIndex = 3;
             // 
             // btn_saveUserId
@@ -81,9 +81,9 @@ namespace CRUD_client
             this.btn_saveUserId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_saveUserId.Location = new System.Drawing.Point(230, 68);
+            this.btn_saveUserId.Location = new System.Drawing.Point(158, 68);
             this.btn_saveUserId.Name = "btn_saveUserId";
-            this.btn_saveUserId.Size = new System.Drawing.Size(75, 34);
+            this.btn_saveUserId.Size = new System.Drawing.Size(97, 30);
             this.btn_saveUserId.TabIndex = 4;
             this.btn_saveUserId.Text = "Salva";
             this.btn_saveUserId.UseVisualStyleBackColor = true;
@@ -95,14 +95,14 @@ namespace CRUD_client
             | System.Windows.Forms.AnchorStyles.Right)));
             this.list_todos.FormattingEnabled = true;
             this.list_todos.ItemHeight = 21;
-            this.list_todos.Location = new System.Drawing.Point(92, 187);
+            this.list_todos.Location = new System.Drawing.Point(46, 152);
             this.list_todos.Name = "list_todos";
-            this.list_todos.Size = new System.Drawing.Size(324, 172);
+            this.list_todos.Size = new System.Drawing.Size(319, 172);
             this.list_todos.TabIndex = 5;
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(92, 365);
+            this.btn_delete.Location = new System.Drawing.Point(46, 330);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(90, 34);
             this.btn_delete.TabIndex = 6;
@@ -114,7 +114,7 @@ namespace CRUD_client
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(155, 432);
+            this.label3.Location = new System.Drawing.Point(109, 397);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(221, 30);
             this.label3.TabIndex = 7;
@@ -122,15 +122,15 @@ namespace CRUD_client
             // 
             // txt_title
             // 
-            this.txt_title.Location = new System.Drawing.Point(147, 465);
+            this.txt_title.Location = new System.Drawing.Point(101, 430);
             this.txt_title.Name = "txt_title";
-            this.txt_title.Size = new System.Drawing.Size(290, 29);
+            this.txt_title.Size = new System.Drawing.Size(264, 29);
             this.txt_title.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(89, 473);
+            this.label4.Location = new System.Drawing.Point(43, 438);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 21);
             this.label4.TabIndex = 9;
@@ -138,7 +138,7 @@ namespace CRUD_client
             // 
             // btn_createTodo
             // 
-            this.btn_createTodo.Location = new System.Drawing.Point(234, 500);
+            this.btn_createTodo.Location = new System.Drawing.Point(173, 465);
             this.btn_createTodo.Name = "btn_createTodo";
             this.btn_createTodo.Size = new System.Drawing.Size(75, 36);
             this.btn_createTodo.TabIndex = 12;
@@ -148,7 +148,7 @@ namespace CRUD_client
             // 
             // btn_complete
             // 
-            this.btn_complete.Location = new System.Drawing.Point(326, 365);
+            this.btn_complete.Location = new System.Drawing.Point(275, 330);
             this.btn_complete.Name = "btn_complete";
             this.btn_complete.Size = new System.Drawing.Size(90, 34);
             this.btn_complete.TabIndex = 13;
@@ -160,7 +160,7 @@ namespace CRUD_client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 727);
+            this.ClientSize = new System.Drawing.Size(407, 596);
             this.Controls.Add(this.btn_complete);
             this.Controls.Add(this.btn_createTodo);
             this.Controls.Add(this.label4);
