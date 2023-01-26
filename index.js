@@ -32,7 +32,7 @@ app.get('/todos', (req, res) => {
 
 app.post('/todos', (req, res) => {
     let newTodo = req.body
-    newTodo.id = todos.length + 1
+    newTodo.id = todos[todos.length - 1].id + 1
     console.log(newTodo)
     todos.push(newTodo)
     res.status(201).json({ message: 'Created' })
