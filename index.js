@@ -30,10 +30,24 @@ app.get('/todos', (req, res) => {
     }
 })
 
+app.post('/todos', (req, res) => {
+    let newTodo = req.body
+    newTodo.id = todos.length + 1
+    console.log(newTodo)
+    todos.push(newTodo)
+    res.status(201).json({ message: 'Created' })
+})
+
 app.delete('/todos/:id', (req, res) => {
     const todoId = req.params.id
     todos = todos.filter(todo => todo.id != todoId)
     res.status(200).json({ message: 'Operation completed' });
+})
+
+app.put('/todos/:id', (req, res) => {
+    const pos = todos.findIndex(todo => todo.id == req.body.id)
+    todos[pos] = req.body
+    res.status(200).json({ message: 'Item modified '})
 })
 
 app.listen(process.env.port, () => {
